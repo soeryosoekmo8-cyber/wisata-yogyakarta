@@ -1,195 +1,167 @@
-# 🏛️ Pinarak Yogyakarta
-### Website Pariwisata Kota Istimewa Yogyakarta
-
-![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-> Portal informasi wisata Kota Yogyakarta yang menampilkan destinasi terbaik lengkap dengan sistem manajemen konten berbasis PHP & MySQL.
-
-🌐 **Live Demo:** [wisatayogyakarta.free.nf](https://wisatayogyakarta.free.nf)
+# 🏛️ Website Pariwisata Yogyakarta
+**Sistem Informasi Wisata Kota Istimewa Yogyakarta**
 
 ---
 
-## 📸 Preview
-
-| Halaman Utama | Panel Admin |
-|---|---|
-| Hero section dengan foto Tugu Jogja | Dashboard statistik & CRUD |
-| Grid destinasi wisata | Kelola data wisata & kategori |
-| Form komentar & rating | Manajemen komentar pengunjung |
-
----
-
-## ✨ Fitur Utama
-
-### 👥 Halaman Pengunjung
-- 🏠 **Hero Section** — Foto Tugu Jogja dengan animasi floating card
-- 🔍 **Pencarian Realtime** — Cari wisata berdasarkan nama & lokasi
-- 🏷️ **Filter Kategori** — Filter wisata berdasarkan kategori
-- 📋 **Modal Detail** — Popup detail wisata dengan peta Google Maps
-- 💬 **Komentar & Rating** — Pengunjung bisa beri komentar & rating bintang
-- 📱 **Responsive** — Tampilan optimal di HP, tablet, dan desktop
-- 📬 **Halaman Kontak** — Form kontak lengkap dengan info tim
-- 🔒 **Kebijakan Privasi** — Modal popup kebijakan privasi
-
-### 🔐 Panel Admin
-- 🔑 **Login Aman** — Autentikasi dengan password bcrypt
-- 📊 **Dashboard** — Statistik total wisata, kategori & komentar
-- ➕ **Tambah Wisata** — Input data + upload gambar
-- ✏️ **Edit Wisata** — Update data & ganti gambar
-- 🗑️ **Hapus Wisata** — Delete data + otomatis hapus gambar
-- 🔎 **Pencarian & Filter** — Cari data di panel admin
-- 📄 **Pagination** — Tampilan data per halaman
-- 🔄 **Toggle Status** — Aktif/nonaktif wisata dengan 1 klik
-- 🏷️ **Kelola Kategori** — CRUD kategori wisata
-- 💬 **Kelola Komentar** — Moderasi komentar pengunjung
-- 👤 **Profil Admin** — Update nama & ganti password
-
----
-
-## 🗂️ Struktur Folder
+## 📁 Struktur Folder
 
 ```
 wisata_yogyakarta/
 │
 ├── index.php                  ← Halaman utama pengunjung
-├── kontak.php                 ← Halaman kontak
 ├── database.sql               ← File database (import via phpMyAdmin)
 │
 ├── includes/
 │   ├── config.php             ← Konfigurasi koneksi database
-│   └── auth.php               ← Fungsi autentikasi & helper
+│   └── auth.php               ← Fungsi login, logout, helper
 │
 ├── admin/
-│   ├── login.php              ← Login admin
-│   ├── logout.php             ← Logout
-│   ├── dashboard.php          ← Dashboard statistik
-│   ├── wisata.php             ← List & hapus wisata
+│   ├── login.php              ← Halaman login admin
+│   ├── logout.php             ← Proses logout
+│   ├── dashboard.php          ← Dashboard statistik admin
+│   ├── wisata.php             ← CRUD list & hapus wisata
 │   ├── wisata_tambah.php      ← Form tambah wisata
 │   ├── wisata_edit.php        ← Form edit wisata
 │   ├── kategori.php           ← CRUD kategori
 │   ├── komentar.php           ← Kelola komentar
-│   ├── profil.php             ← Profil admin
+│   ├── profil.php             ← Profil & ganti password
 │   └── includes/
-│       ├── sidebar.php        ← Template sidebar
-│       └── footer_admin.php   ← Penutup template
+│       ├── sidebar.php        ← Template sidebar admin
+│       └── footer_admin.php   ← Penutup template admin
 │
 ├── ajax/
-│   └── get_wisata.php         ← Endpoint detail wisata (AJAX)
+│   └── get_wisata.php         ← Endpoint detail wisata (modal)
 │
 ├── assets/
 │   ├── css/
 │   │   ├── style.css          ← CSS halaman pengunjung
-│   │   └── admin.css          ← CSS panel admin
+│   │   └── admin.css          ← CSS halaman admin
 │   ├── js/
 │   │   ├── main.js            ← JS halaman pengunjung
-│   │   └── admin.js           ← JS panel admin
+│   │   └── admin.js           ← JS halaman admin
 │   └── images/
-│       └── default.jpg        ← Gambar placeholder
+│       └── default.jpg        ← Gambar placeholder default
 │
 └── uploads/
     └── wisata/                ← Folder upload gambar wisata
+        └── .htaccess          ← (Keamanan: tolak eksekusi PHP)
 ```
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🚀 Cara Instalasi di XAMPP (Server Sekolah)
 
-| Teknologi | Kegunaan |
-|---|---|
-| **PHP 7.4+** | Backend & server-side logic |
-| **MySQL / MariaDB** | Database |
-| **PDO** | Koneksi database (anti SQL Injection) |
-| **HTML5** | Struktur halaman |
-| **CSS3** | Styling & animasi |
-| **Vanilla JavaScript** | Interaktivitas & AJAX |
-| **Font Awesome 6** | Ikon |
-| **Google Fonts** | Tipografi (Playfair Display + Nunito) |
-| **Apache (XAMPP)** | Web server lokal |
+### Langkah 1 — Persiapkan XAMPP
+1. Pastikan **XAMPP** sudah terinstall dan berjalan
+2. Start **Apache** dan **MySQL** dari XAMPP Control Panel
 
----
+### Langkah 2 — Copy File ke htdocs
+1. Copy seluruh folder `wisata_yogyakarta` ke:
+   ```
+   C:\xampp\htdocs\wisata_yogyakarta\
+   ```
 
-## 🚀 Cara Instalasi (XAMPP)
+### Langkah 3 — Import Database via phpMyAdmin
+1. Buka browser, akses: `http://localhost/phpmyadmin`
+2. Klik **"New"** (buat database baru)
+3. Nama database: `wisata_yogyakarta`, klik **Create**
+4. Pilih database tersebut, klik tab **Import**
+5. Klik **Choose File**, pilih file `database.sql`
+6. Klik tombol **Import** / **Go**
+7. Tunggu hingga muncul pesan sukses ✅
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/soeryosoekmo8-cyber/wisata-yogyakarta.git
-```
-
-### 2. Copy ke htdocs
-```
-C:\xampp\htdocs\wisata_yogyakarta\
-```
-
-### 3. Import Database
-- Buka `http://localhost/phpmyadmin`
-- Buat database baru: `wisata_yogyakarta`
-- Import file `database.sql`
-
-### 4. Sesuaikan Config
-Edit `includes/config.php`:
+### Langkah 4 — Sesuaikan Konfigurasi
+Edit file `includes/config.php` jika perlu:
 ```php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'localhost');   // Host database
+define('DB_USER', 'root');        // Username MySQL (default: root)
+define('DB_PASS', '');            // Password MySQL (default: kosong)
 define('DB_NAME', 'wisata_yogyakarta');
 define('BASE_URL', 'http://localhost/wisata_yogyakarta');
 ```
 
-### 5. Akses Website
-- **Pengunjung:** `http://localhost/wisata_yogyakarta/`
-- **Admin:** `http://localhost/wisata_yogyakarta/admin/login.php`
+### Langkah 5 — Akses Website
+- **Halaman Pengunjung:** `http://localhost/wisata_yogyakarta/`
+- **Halaman Admin:** `http://localhost/wisata_yogyakarta/admin/login.php`
 
 ---
 
-## 🔐 Akun Demo
+## 🔐 Akun Login Admin Default
 
-| Role | Username | Password |
-|---|---|---|
-| Admin | `admin` | `password` |
+| Field    | Nilai        |
+|----------|-------------|
+| Username | `admin`      |
+| Password | `password`   |
 
-> ⚠️ Ganti password setelah pertama kali login!
-
----
-
-## 🔒 Keamanan
-
-- ✅ Password di-hash dengan **bcrypt** (`password_hash`)
-- ✅ **Prepared Statement PDO** — anti SQL Injection
-- ✅ **Session management** yang aman
-- ✅ Validasi tipe & ukuran file upload
-- ✅ Sanitasi input dengan `htmlspecialchars()`
-- ✅ Session regenerate setelah login
-- ✅ `.htaccess` memblokir eksekusi PHP di folder uploads
+> ⚠️ **PENTING:** Segera ganti password setelah pertama kali login melalui menu **Profil Admin**!
 
 ---
 
-## 👥 Tim Pembuat
+## 🎯 Fitur Website
 
-| No | Nama | Role |
-|---|---|---|
-| 1 | **Alexander Bintang Nugraha** | Developer |
-| 2 | **Desvian Angga Saputra** | Developer |
-| 3 | **Rafiq Maulana** | Developer |
-| 4 | **Soeryo Soekmo Seto S.G** | Developer |
+### Halaman Pengunjung (Publik)
+- ✅ Tampilan hero section yang menarik dengan animasi
+- ✅ Grid kartu destinasi wisata
+- ✅ Filter wisata berdasarkan kategori
+- ✅ Pencarian realtime nama/lokasi wisata
+- ✅ Modal popup detail wisata (AJAX)
+- ✅ Halaman tentang Yogyakarta
+- ✅ Footer lengkap dengan info kontak
+- ✅ Responsif (mobile-friendly)
 
-**Kelas:** XI TKJ 1  
-**Sekolah:** SMK Negeri 1 Seyegan  
-**Mata Pelajaran:** PKDK  
-**Tahun Ajaran:** 2025/2026  
+### Panel Admin (Login Diperlukan)
+- ✅ Dashboard statistik (total wisata, kategori, komentar)
+- ✅ **CREATE** — Tambah wisata baru + upload gambar
+- ✅ **READ** — Lihat semua data wisata dengan tabel
+- ✅ **UPDATE** — Edit data & ganti gambar wisata
+- ✅ **DELETE** — Hapus wisata (gambar otomatis ikut terhapus)
+- ✅ Pencarian & filter data wisata
+- ✅ Pagination (10 data per halaman)
+- ✅ Toggle status aktif/nonaktif wisata
+- ✅ CRUD kategori wisata
+- ✅ Kelola komentar pengunjung
+- ✅ Profil admin & ganti password
 
 ---
 
-## 📄 Lisensi
-
-Project ini dibuat untuk keperluan tugas sekolah. Bebas digunakan sebagai referensi pembelajaran.
+## 🛡️ Keamanan
+- Password di-hash dengan `password_hash()` (bcrypt)
+- Prepared Statement PDO (anti SQL Injection)
+- Session management yang aman
+- Validasi tipe & ukuran file upload
+- Sanitasi input dengan `htmlspecialchars()`
+- Session regenerate setelah login
 
 ---
 
-<div align="center">
-  <p>Dibuat dengan ❤️ untuk Kota Istimewa Yogyakarta</p>
-  <p>© 2026 Pinarak Yogyakarta — SMK Negeri 1 Seyegan</p>
-</div>
+## 🔧 Troubleshooting
+
+**❌ "Koneksi Database Gagal"**
+→ Pastikan XAMPP MySQL sudah aktif dan database sudah diimport
+
+**❌ Upload gambar tidak berhasil**
+→ Pastikan folder `uploads/wisata/` memiliki permission write (755)
+→ Di XAMPP Windows: biasanya sudah otomatis OK
+
+**❌ Halaman tidak ditemukan (404)**
+→ Pastikan folder bernama persis `wisata_yogyakarta` di `htdocs`
+→ Periksa BASE_URL di `includes/config.php`
+
+**❌ Modal detail tidak muncul**
+→ Buka DevTools browser (F12), cek tab Console untuk error
+→ Pastikan file `ajax/get_wisata.php` ada
+
+---
+
+## 💡 Teknologi yang Digunakan
+- **Backend:** PHP 7.4+ dengan PDO
+- **Database:** MySQL 5.7+ / MariaDB 10+
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Ikon:** Font Awesome 6
+- **Font:** Google Fonts (Playfair Display + Nunito)
+- **Server:** Apache (XAMPP)
+
+---
+
+*Dibuat untuk tugas Website Pariwisata Yogyakarta*
+*© 2024 — Sistem Informasi Wisata Kota Istimewa*
