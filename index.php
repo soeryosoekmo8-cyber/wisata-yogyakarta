@@ -423,12 +423,6 @@ $totalPengunjung = $pdo->query("SELECT COUNT(DISTINCT ip) FROM pengunjung")->fet
           <div class="brand-name">Pinarak Yogyakarta</div>
         </div>
         <p class="footer-desc">Portal resmi informasi wisata Kota Yogyakarta. Temukan destinasi terbaik dan buat kenangan indah bersama orang-orang tersayang.</p>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-        </div>
       </div>
       <div>
         <h4 class="footer-heading">Destinasi Populer</h4>
