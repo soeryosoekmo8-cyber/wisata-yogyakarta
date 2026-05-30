@@ -180,7 +180,7 @@ $kategoriList = $pdo->query("SELECT * FROM kategori ORDER BY id")->fetchAll();
         </div>
         <?php endif; ?>
 
-        <form method="POST" action="kontak.php">
+        <form method="POST" action="https://wisatayogyakarta.free.nf/kontak.php">
           <div class="form-row-2">
             <div class="form-group">
               <label>Nama Lengkap <span style="color:red">*</span></label>
